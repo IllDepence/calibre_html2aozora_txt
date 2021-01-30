@@ -16,11 +16,13 @@ def aozora_fmt(ruby_elem):
     """
 
     hani_ptrn = re.compile('([^>]+)(?=<rt>)')
+    rt_ptrn = re.compile('<rt[^>]*>')
+    ruby_ptrn = re.compile('<ruby[^>]*>')
     s = str(ruby_elem)
     s = re.sub(hani_ptrn, r'｜\1', s)
-    s = s.replace('<rt>', '《')
+    s = re.sub(rt_ptrn, '《', s)
     s = s.replace('</rt>', '》')
-    s = s.replace('<ruby>', '')
+    s = re.sub(ruby_ptrn, '', s)
     s = s.replace('</ruby>', '')
     # U+5C5B -> U+5C4F b/c a2k.aill.org/text.html eats U+5C5B
     s = s.replace('屛', '屏')

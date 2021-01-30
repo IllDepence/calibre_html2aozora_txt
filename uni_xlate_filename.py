@@ -3,8 +3,7 @@
 
     - mount Kindle with -o uni_xlate=1
     - run this script w/ the filename as command line parameter
-    - rename move the file to the kindle and rename it to the output of this
-      script
+    - move the file to the kindle and rename it to the output of this script
 
     example:
         $ sudo mount -o uni_xlate=1 /dev/sdb1 /mnt/sdb1
